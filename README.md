@@ -1,2 +1,22 @@
-# tapioca-iugu
-Iugu API wrapper using tapioca https://iugu.com/referencias/api
+# Tapioca iugu
+
+## Installation
+```
+pip install tapioca-iugu
+```
+
+## Documentation
+``` python
+from tapioca_iugu import Iugu
+
+
+api = Iugu(
+	user='{your-user}', password='{your-password}')
+
+```
+
+No more documentation needed.
+
+- Learn how Tapioca works [here](http://tapioca-wrapper.readthedocs.org/en/stable/quickstart.html)
+- Explore this package using iPython
+- Have fun!
