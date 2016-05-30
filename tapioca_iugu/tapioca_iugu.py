@@ -17,10 +17,8 @@ class IuguClientAdapter(JSONAdapterMixin, TapiocaAdapter):
         params = super(IuguClientAdapter, self).get_request_kwargs(
             api_params, *args, **kwargs)
 
-        
         params['auth'] = HTTPBasicAuth(
             api_params.get('user'), api_params.get('password'))
-        
 
         return params
 
@@ -29,7 +27,15 @@ class IuguClientAdapter(JSONAdapterMixin, TapiocaAdapter):
 
     def get_iterator_next_request_kwargs(self, iterator_request_kwargs,
                                          response_data, response):
-        pass
+        if 'params' not in iterator_request_kwargs:
+            iterator_request_kwargs['params'] = {}
+
+        start = iterator_request_kwargs['params'].get('start', 0)
+        total_items = response_data.get('totalItems')
+        items = len(response_data.get('items')) + start
+        if total_items > items:
+            iterator_request_kwargs['params']['start'] = start + items
+            return iterator_request_kwargs
 
 
 Iugu = generate_wrapper_from_adapter(IuguClientAdapter)

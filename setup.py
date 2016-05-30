@@ -20,11 +20,12 @@ except (IOError, ImportError):
 
 package = 'tapioca_iugu'
 requirements = [
-    'tapioca-wrapper<0.7.0',
+    'tapioca-wrapper<2',
 
 ]
 test_requirements = [
-
+    'pytest-cov',
+    'vcrpy',
 ]
 
 
@@ -95,6 +96,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
     ],
+    setup_requires=['pytest-runner'],
     test_suite='tests',
     tests_require=test_requirements
 )
