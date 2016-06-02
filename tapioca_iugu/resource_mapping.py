@@ -201,6 +201,11 @@ RESOURCE_MAPPING = {
         'docs': 'https://iugu.com/referencias/api#transferir-valor',
         'methods': ['POST']
     },
+    'marketplace_account_list': {
+        'resource': 'marketplace',
+        'docs': 'https://iugu.com/referencias/api#marketplace',
+        'methods': ['GET']
+    },
     'marketplace_account_create': {
         'resource': 'marketplace/create_account',
         'docs': 'https://iugu.com/referencias/api#criar-sub-conta',
